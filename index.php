@@ -6,6 +6,9 @@
 </head >
 <body>
 <p>
+<?php
+echo"hi";
+?>
 Test<br>Test<br><hr>
 </p>
 </body>
