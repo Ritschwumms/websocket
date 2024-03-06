@@ -6,10 +6,7 @@
 </head >
 <body>
 <p>
-<?php
-echo"hi";
-?>
-Test<br>Test<br><hr>
+Test<br><br><hr>
 </p>
 </body>
 </html>
