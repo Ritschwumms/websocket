@@ -1,4 +1,9 @@
-FROM nginx:stable-alpine
-COPY . /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+FROM python 3.12
+WORKDIR /
+COPY . /
+RUN pip install asyncio
+RUN pip install websockets
+CMD ["python", "main.py"]
+
+
+
