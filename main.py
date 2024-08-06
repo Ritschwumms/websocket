@@ -32,7 +32,7 @@ async def new_client_connected(client_socket, path):
 
 async def start_server():
     print("Server started.")
-    await websockets.serve(new_client_connected, "https://websocketschesstest-bleqnngd.b4a.run", 8080)
+    await websockets.serve(new_client_connected, "https://websocketschesstest-bleqnngd.b4a.run", 443)
 
 if 1 == 1:
     event_loop = asyncio.get_event_loop()
