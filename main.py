@@ -4,9 +4,9 @@ import asyncio
 all_clients = []
 nicknames = []
 
-async def send_message(message: str):
+async def send_message(message, user):
     for client in all_clients:
-        await client.send(message)
+        await client.send(f"{user} sent: {message}")
 
 async def new_client_connected(client_socket, path):
     try:
@@ -20,7 +20,7 @@ async def new_client_connected(client_socket, path):
         while True:
             new_message = await client_socket.recv()
             print(f"{name} sent: {new_message}")
-            await send_message(new_message)
+            await send_message(new_message, client_socket)
 
     except:
         print("Disconnected.")
