@@ -1,0 +1,41 @@
+import websockets
+import asyncio
+
+all_clients = []
+nicknames = []
+
+async def send_message(message: str):
+    for client in all_clients:
+        await client.send(message)
+
+async def new_client_connected(client_socket, path):
+    try:
+        print("New client connected.")
+        all_clients.append(client_socket)
+        await client_socket.send("NICK")
+        name = await client_socket.recv()
+        nicknames.append(name)
+        await send_message(f"{str(name)} joined.")
+
+        while True:
+            new_message = await client_socket.recv()
+            print(f"{name} sent: {new_message}")
+            await send_message(new_message)
+
+    except:
+        print("Disconnected.")
+        index = all_clients.index(client_socket)
+        all_clients.remove(client_socket)
+        nickname = nicknames[index]
+        nicknames.remove(nickname)
+
+
+async def start_server():
+    print("Server started.")
+    await websockets.serve(new_client_connected, "192.168.178.64", 12345)
+
+if 1 == 1:
+    event_loop = asyncio.get_event_loop()
+    event_loop.run_until_complete(start_server())
+    event_loop.run_forever()
+
