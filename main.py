@@ -35,5 +35,7 @@ async def start_server():
     await websockets.serve(new_client_connected, "https://websocketschesstest-bleqnngd.b4a.run", 443)
     print("Server started")
 
-await asyncio.run(start_server)
+event_loop = asyncio.get_event_loop()
+event_loop.run_until_complete(start_server())
+event_loop.run_forever()
 
