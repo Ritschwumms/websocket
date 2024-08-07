@@ -29,6 +29,7 @@ async def start_server():
     print("Server started")
 
 event_loop = asyncio.get_event_loop()
+print(" event loop")
 event_loop.run_until_complete(start_server())
 event_loop.run_forever()
 
