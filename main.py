@@ -11,7 +11,7 @@ async def new_client_connected(client_socket, path):
     try:
         print("New client connected.")
         all_clients.append(client_socket)
-        await send_message(f"{str(name)} joined.")
+        await send_message(f"{str(name)} joined.", client_socket)
 
         while True:
             new_message = await client_socket.recv()
