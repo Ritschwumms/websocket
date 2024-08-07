@@ -2,7 +2,6 @@ import websockets
 import asyncio
 
 all_clients = []
-nicknames = []
 
 async def send_message(message, user):
     for client in all_clients:
@@ -12,9 +11,6 @@ async def new_client_connected(client_socket, path):
     try:
         print("New client connected.")
         all_clients.append(client_socket)
-        await client_socket.send("NICK")
-        name = await client_socket.recv()
-        nicknames.append(name)
         await send_message(f"{str(name)} joined.")
 
         while True:
