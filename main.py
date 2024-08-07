@@ -30,6 +30,6 @@ async def start_server():
 
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
-asyncio.run(start_server)
+asyncio.run(start_server())
 loop.run_forever()
 
