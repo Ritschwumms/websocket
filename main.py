@@ -22,9 +22,6 @@ async def new_client_connected(client_socket, path):
         print("Disconnected.")
         index = all_clients.index(client_socket)
         all_clients.remove(client_socket)
-        nickname = nicknames[index]
-        nicknames.remove(nickname)
-
 
 async def start_server():
     print("Server starting...")
