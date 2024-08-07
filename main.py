@@ -28,8 +28,8 @@ async def start_server():
     await websockets.serve(new_client_connected, "", 443)
     print("Server started")
 
-event_loop = asyncio.get_event_loop()
-print(" event loop")
-event_loop.run_until_complete(start_server())
-event_loop.run_forever()
+loop = asyncio.new_event_loop()
+asyncio.set_event_loop(loop)
+loop.run_until_complete(start_server)
+loop.run_forever()
 
