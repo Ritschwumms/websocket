@@ -7,4 +7,4 @@ COPY /server/* /app/server/
 COPY /frontend/* /app/frontend/
 
 RUN ls -R /app/
-RUN docker-compose up
+RUN docker-compose.yml up
