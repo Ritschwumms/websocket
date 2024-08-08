@@ -18,6 +18,9 @@ EXPOSE 443
 CMD ["python", "main.py"]
 
 #frontend build
+FROM nginx:stable-alpine AS html
+WORKDIR ../frontend/
 
-
-
+COPY . /usr/share/nginx/html/
+EXPOSE 3000
+CMD ["nginx", "-g", "daemon off;"]
