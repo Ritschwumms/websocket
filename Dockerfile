@@ -7,3 +7,5 @@ COPY /server/* /app/server/
 COPY /frontend/* /app/frontend/
 
 RUN ls -R /app/
+RUN docker build -f /server/py.Dockerfile
+RUN docker build -f /frontend/frontend.Dockerfile
