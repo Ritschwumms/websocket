@@ -1,2 +1,0 @@
-
-Figur giftig Idee
